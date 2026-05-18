@@ -52,6 +52,17 @@ body {
   font-weight: bold;
 }
 
+.hlava {
+  transform: rotateX(180deg);
+}
+
+.hlava, .orel {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
 #vysledek {
   font-size: 18px;
   font-weight: bold;
