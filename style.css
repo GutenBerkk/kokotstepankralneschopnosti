@@ -30,11 +30,11 @@ body{
   width: 120px;
 }
 
-.tails {
+.hlava {
   transform: rotateX(180deg);
 }
 
-.heads,.tails {
+.hlava,.orel {
   position: absolute;
   width: 100%;
   height: 100%;
