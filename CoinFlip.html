@@ -8,7 +8,7 @@
 </head>
 <body>
     <header>
-        <div id="kontejnr">
+        <div id="container">
             <div id="coinFlip">
                 <a href="CoinFlip.html"><button>CoinFlip</button></a>
             </div>
@@ -21,5 +21,23 @@
         </div>
         
     </header>
+    <main>
+      <div id="container">
+        <div id="mince">
+          <div class="heads">
+            <img src="img/head.png" alt=" hlava" />
+          </div>
+          <div class="tails">
+            <img src="img/tail.png" alt="orel" />
+          </div>
+        </div>
+        <button onclick="hodMinci()">hoď mincí</button>
+        <p>peníze: <span id="penize">100</span> Kč</p>
+        <p>poplatek za hod: 5 Kč</p>
+        <p id="vysledek"></p>
+      </div>
+      
+    </main>
 </body>
+<script src="script.js"></script>
 </html>
