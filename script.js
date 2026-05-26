@@ -20,10 +20,9 @@ let minceData = {
   "10kč": { label: "10 Kč", win: 10, loss: 10, fee: 5, headSrc: "img/head_10.png", tailSrc: "img/tail_10.png" },
   "50kč": { label: "50 Kč", win: 50, loss: 50, fee: 20, headSrc: "img/head_50.png", tailSrc: "img/tail_50.png" },
   "zidcoin": { label: "Židovská koruna", win: 200, loss: 200, fee: 50, headSrc: "img/head_zidcoin.png", tailSrc: "img/tail_zidcoin.png" },
-  "goldcoin": { label: "Zlatá mince", win: 500, loss: 500, fee: 100, headSrc: "img/head_goldzid.png", tailSrc: "img/tail_goldzid.png" }
-};
-
-// Pomocná funkce pro uložení a vykreslení peněz (předchází chybám s localStorage)
+  "goldcoin": { label: "Zlatá mince", win: 500, loss: 500, fee: 100, headSrc: "img/head_goldzid.png", tailSrc: "img/tail_goldzid.png" },
+  "frankcoin": { label: "Frankova koruna", win: 67.67, loss: 677.67, fee: 67, headSrc: "img/head_frank.png", tailSrc: "img/tail_frank.png" }
+}
 function aktualizujZustatek() {
   document.getElementById("cash").innerText = penize;
   localStorage.setItem("penize", penize);
@@ -67,9 +66,9 @@ function hodMinci() {
   
   let jeHlava = Math.random() <= 0.5;
   if (jeHlava) {
-    mince.style.animation = "flip-hlava 3s forwards";
-  } else {
     mince.style.animation = "flip-orel 3s forwards";
+  } else {
+    mince.style.animation = "flip-hlava 3s forwards";
   }
 
   tlacitko.disabled = true;
@@ -88,7 +87,7 @@ function hodMinci() {
     aktualizujZustatek(); // Uložení výsledku hodu
   }, 3000);
 }
-
+// ruleta 
 function ruleta(vybrano) {
   let padla = Math.random() < 0.5 ? "cerna" : "cervena";
   

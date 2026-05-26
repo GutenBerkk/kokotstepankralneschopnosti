@@ -32,15 +32,15 @@
             <img src="img/tail_10.png" alt="orel" />
           </div>
         </div>
-
-          <label for="vyberMince">Vyber mince:</label>
-          <select id="vyberMince" onchange="updatecoin()">
+        <div class="coinvyber">
+          <label for="vyberMince">Vyber mince: </label>
+          <select id="vyberMince" onchange="updatecoin()" class="coinflipSelect">
             <option value="10kč">Česká desetikoruna (10 Kč)</option>
             <option value="50kč">Česká padesátikoruna (50 Kč)</option>
             <option value="zidcoin">Židovská koruna (200 Kč)</option>
             <option value="goldcoin">Zlatá mince (500 Kč)</option>
           </select>
-
+        </div>
           <button onclick="hodMinci()" class="coinflipButton">hoď mincí</button>
           <p>Vybraná mince: <span id="vybranaMince">50 Kč</span></p>
           <p>poplatek za hod: <span id="poplatek">5</span> Kč</p>
