@@ -1,4 +1,3 @@
-// 1. Načtení peněz z paměti (pokud tam nejsou, dáme 100)
 let penize = Number(localStorage.getItem("penize")) || 100
 document.getElementById("cash").innerText = penize
 
@@ -9,7 +8,7 @@ let aktivniHra = false
 
 function hodMinci() {
   let mince = document.getElementById("mince")
-  let penizeP = document.getElementById("cash") // Změněno na cash podle navigace
+  let penizeP = document.getElementById("cash")
   let vysledek = document.getElementById("vysledek")
   let tlacitko = document.querySelector("button[onclick='hodMinci()']")
 
@@ -42,8 +41,33 @@ function hodMinci() {
     penize -= poplatek
     penizeP.innerText = penize
     tlacitko.disabled = false
-
-    // 2. Uložení aktuálních peněz po skončení hodu
     localStorage.setItem("penize", penize)
   }, 3000)
+}
+
+function ruleta(vybrano) {
+  let padla = Math.random() < 0.5 ? "Černá" : "Červená"
+  document.getElementById("padla").innerText = padla
+  let sazka = Number(document.getElementById("sazka").value)
+
+  if (sazka > penize) {
+    alert("Nemáš dost peněz na tuto sázku!")
+    return
+  }
+  
+  if (sazka <= 0) {
+    alert("Sázka musí být kladná!")
+    return
+  }
+
+  let padlaUpraveno = padla.toLowerCase().replace("č", "c")
+
+  if (vybrano === padlaUpraveno) {
+    penize += sazka
+  } else {
+    penize -= sazka
+  }
+
+  document.getElementById("cash").innerText = penize
+  localStorage.setItem("penize", penize)
 }
