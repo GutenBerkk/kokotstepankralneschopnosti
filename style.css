@@ -80,6 +80,20 @@ nav ul li a:hover {
   backface-visibility: hidden;
 }
 
+.coinflipButton {
+  background-color: #2a2a35;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.coinflipButton:hover {
+  background-color: #ffc107;
+  color: #1e1e24;
+}
 @keyframes flip-hlava {
   0% { transform: rotateX(0); }
   100% { transform: rotateX(2520deg); }
@@ -173,6 +187,7 @@ nav ul li a:hover {
   border-radius: 5px;
   font-size: 1.1rem;
   cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 .blackjackButton:hover {
