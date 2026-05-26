@@ -13,7 +13,7 @@ let minceData = {
   "goldcoin": { label: "Zlatá mince", win: 500, loss: 500, fee: 100, headSrc: "img/head_goldzid.png", tailSrc: "img/tail_goldzid.png" }
 }
 
-function aktualizujVybranouMinci() {
+function updatecoin() {
   let vyber = document.getElementById("vyberMince")
   if (!vyber) return
   let vybrana = document.getElementById("vybranaMince")
