@@ -46,9 +46,9 @@ function hodMinci() {
   
   let jeHlava = Math.random() <= 0.5
   if (jeHlava) {
-    mince.style.animation = "flip-hlava 3s forwards"
-  } else {
     mince.style.animation = "flip-orel 3s forwards"
+  } else {
+    mince.style.animation = "flip-hlava 3s forwards"
   }
 
   tlacitko.disabled = true
