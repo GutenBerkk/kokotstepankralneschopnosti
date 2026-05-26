@@ -1,9 +1,22 @@
 let penize = Number(localStorage.getItem("penize")) || 100;
+
 /* Coinflip hra */
 let poplatek = 5;
-let interval = null;
-let velikost = 100;
-let aktivniHra = false;
+
+let minceData = {
+  "50": { label: "50 Kč", value: 50 },
+  "zidovska": { label: "Židovská koruna", value: 200 },
+  "zlata": { label: "Zlatá mince", value: 500 }
+}
+
+function updatemince() {
+  let vyber = document.getElementById("vyberMince")
+  let vybrana = document.getElementById("vybranaMince")
+  let mince = minceData[vyber.value]
+  if (vybrana && mince) vybrana.innerText = mince.label
+}
+
+
 
 function hodMinci() {
   let mince = document.getElementById("mince")
@@ -31,11 +44,11 @@ function hodMinci() {
 
   setTimeout(function() {
     if (jeHlava) {
-      penize -= 10
-      vysledek.innerText = "Padl orel, odebráno 10 Kč."
+      penize += minc.value
+      vysledek.innerText = `Padla hlava, přidáno ${minc.value} Kč.`
     } else {
-      penize += 10
-      vysledek.innerText = "Padla hlava, přidáno 10 Kč."
+      penize -= minc.value
+      vysledek.innerText = `Padl orel, odebráno ${minc.value} Kč.`
     }
     penize -= poplatek
     penizeP.innerText = penize
@@ -46,3 +59,8 @@ function hodMinci() {
 
   }, 3000)
 }
+
+document.addEventListener("DOMContentLoaded", function() {
+  if (document.getElementById("vyberMince")) aktualizujVybranouMinci()
+  obnovitPenizeZobrazeni()
+})
