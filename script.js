@@ -9,8 +9,8 @@ let aktivniHra = false
 let minceData = {
   "10kč": { label: "10 Kč", win: 10, loss: 10, fee: 5, headSrc: "img/head_10.png", tailSrc: "img/tail_10.png" },
   "50kč": { label: "50 Kč", win: 50, loss: 50, fee: 20, headSrc: "img/head_50.png", tailSrc: "img/tail_50.png" },
-  "zidcoin": { label: "Židovská koruna", win: 200, loss: 200, fee: 50, headSrc: "img/head_zidovska.png", tailSrc: "img/tail_zidovska.png" },
-  "goldcoin": { label: "Zlatá mince", win: 500, loss: 500, fee: 100, headSrc: "img/head_zlata.png", tailSrc: "img/tail_zlata.png" }
+  "zidcoin": { label: "Židovská koruna", win: 200, loss: 200, fee: 50, headSrc: "img/head_zidcoin.png", tailSrc: "img/tail_zidcoin.png" },
+  "goldcoin": { label: "Zlatá mince", win: 500, loss: 500, fee: 100, headSrc: "img/head_goldzid.png", tailSrc: "img/tail_goldzid.png" }
 }
 
 function aktualizujVybranouMinci() {
