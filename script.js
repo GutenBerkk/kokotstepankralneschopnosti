@@ -36,8 +36,8 @@ function hodMinci() {
       penize -= 10
       vysledek.innerText = "Padl orel, odebráno 10 Kč."
     } else {
-      penize += 10
-      vysledek.innerText = "Padla hlava, přidáno 10 Kč."
+      penize += 20
+      vysledek.innerText = "Padla hlava, přidáno 20 Kč."
     }
     penize -= poplatek
     penizeP.innerText = penize
