@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Půjčky</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div>
+                <a href="index.html">BubaCasino</a>
+            </div>
+            <ul>
+                <li><p>Peníze: <span id="cash">0</span> kč</p></li>
+                <li><a href="index.html">Domů</a></li>
+                <li><a href="CoinFlip.html">CoinFlip</a></li>
+                <li><a href="cheapRuleta.html">CheapRuleta</a></li>
+                <li><a href="pujcky.html">Půjčky</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+      <div id="container">
+        <h2>Půjčky</h2>
+        <p>Kolik peněz si chceš vypůjčit?</p>
+        <input type="number" id="pujckaInput" placeholder="Zadej částku" min="1" />
+        <button onclick="pujcitPenize()">Vypůjčit si peníze</button>
+        <p id="zpravaoPujcce"></p>
+      </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

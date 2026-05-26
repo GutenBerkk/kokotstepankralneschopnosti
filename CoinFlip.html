@@ -17,6 +17,7 @@
                 <li><a href="index.html">Domů</a></li>
                 <li><a href="CoinFlip.html">CoinFlip</a></li>
                 <li><a href="cheapRuleta.html">CheapRuleta</a></li>
+                <li><a href="pujcky.html">Půjčky</a></li>
             </ul>
         </nav>
     </header>
@@ -24,25 +25,26 @@
       <div id="container">
         <div id="mince">
           <div class="hlava">
-            <img src="img/head.png" alt=" hlava" />
+            <img src="img/head_10.png" alt=" hlava" />
           </div>
           <div class="orel">
-            <img src="img/tail.png" alt="orel" />
+            <img src="img/tail_10.png" alt="orel" />
           </div>
         </div>
 
-        <label for="vyberMince">Vyber mince:</label>
-        <select id="vyberMince" onchange="aktualizujVybranouMinci()">
-          <option value="50">50 Kč</option>
-          <option value="zidovska">Židovská koruna (200 Kč)</option>
-          <option value="zlata">Zlatá mince (500 Kč)</option>
-        </select>
+          <label for="vyberMince">Vyber mince:</label>
+          <select id="vyberMince" onchange="aktualizujVybranouMinci()">
+            <option value="10kč">10 Kč</option>
+            <option value="50kč">50 Kč</option>
+            <option value="zidcoin">Židovská koruna (200 Kč)</option>
+            <option value="goldcoin">Zlatá mince (500 Kč)</option>
+          </select>
 
-        <button onclick="hodMinci()">hoď mincí</button>
-        <p>Vybraná mince: <span id="vybranaMince">50 Kč</span></p>
-        <p>poplatek za hod: 5 Kč</p>
-        <p id="vysledek"></p>
-      </div>
+          <button onclick="hodMinci()">hoď mincí</button>
+          <p>Vybraná mince: <span id="vybranaMince">50 Kč</span></p>
+          <p>poplatek za hod: <span id="poplatek">5</span> Kč</p>
+          <p id="vysledek"></p>
+        </div>
     </main>
     <script src="script.js"></script>
 </body>
