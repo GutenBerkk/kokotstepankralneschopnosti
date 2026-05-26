@@ -1,16 +1,9 @@
-// NAČTENÍ: Pokud v localStorage peníze jsou, načti je (převeď na číslo). Pokud ne, nastav 100.
 let penize = Number(localStorage.getItem("penize")) || 100;
 
 let poplatek = 5;
 let interval = null;
 let velikost = 100;
 let aktivniHra = false;
-
-// Hned po načtení skriptu vypíšeme uložené peníze do HTML (aby tam nesvítila stará hodnota z HTML)
-// Tento řádek spusť až poté, co se ujistíš, že element s id "penize" v HTML už existuje
-document.addEventListener("DOMContentLoaded", function() {
-  document.getElementById("penize").innerText = penize;
-});
 
 function hodMinci() {
   let mince = document.getElementById("mince")
