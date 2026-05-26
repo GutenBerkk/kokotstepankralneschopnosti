@@ -1,12 +1,11 @@
-// 1. Inicializace peněz z localStorage (pokud neexistuje, nastaví se 100)
 let penize = Number(localStorage.getItem("penize"));
 if (isNaN(penize) || penize <= 0) {
   penize = 100;
   localStorage.setItem("penize", penize);
 }
 
-// Zobrazení peněz na webu hned po načtení
-document.getElementById("cash").innerText = penize;
+let cashEl = document.getElementById("cash");
+if (cashEl) cashEl.innerText = penize;
 
 // Společné stavové proměnné (DEKLAROVÁNY POUZE JEDNOU)
 let pPoints = 0, dPoints = 0, bSazka = 0, bBezi = false;
@@ -15,16 +14,17 @@ let interval = null;
 let velikost = 100;
 let aktivniHra = false;
 
-// Databáze mincí
 let minceData = {
   "10kč": { label: "10 Kč", win: 10, loss: 10, fee: 5, headSrc: "img/head_10.png", tailSrc: "img/tail_10.png" },
   "50kč": { label: "50 Kč", win: 50, loss: 50, fee: 20, headSrc: "img/head_50.png", tailSrc: "img/tail_50.png" },
   "zidcoin": { label: "Židovská koruna", win: 200, loss: 200, fee: 50, headSrc: "img/head_zidcoin.png", tailSrc: "img/tail_zidcoin.png" },
   "goldcoin": { label: "Zlatá mince", win: 500, loss: 500, fee: 100, headSrc: "img/head_goldzid.png", tailSrc: "img/tail_goldzid.png" },
   "frankcoin": { label: "Frankova koruna", win: 67.67, loss: 677.67, fee: 67, headSrc: "img/head_frank.png", tailSrc: "img/tail_frank.png" }
-}
+};
+
 function aktualizujZustatek() {
-  document.getElementById("cash").innerText = penize;
+  let cashEl = document.getElementById("cash");
+  if (cashEl) cashEl.innerText = penize;
   localStorage.setItem("penize", penize);
 }
 
@@ -42,7 +42,7 @@ function updatecoin() {
   hlavaImg.src = mince.headSrc;
   orelImg.src = mince.tailSrc;
 }
-
+//ahoj
 function hodMinci() {
   let mince = document.getElementById("mince");
   let vysledek = document.getElementById("vysledek");
@@ -57,7 +57,6 @@ function hodMinci() {
     return;
   }
 
-  // Odečtení poplatku IHNED před hodem
   penize -= vybranaMinc.fee;
   aktualizujZustatek();
 
@@ -135,7 +134,6 @@ function pujcitPenize() {
   aktualizujZustatek();
 }
 
-// SEKCE BLACKJACK
 function startBlackjack() {
   if (bBezi) return;
   
