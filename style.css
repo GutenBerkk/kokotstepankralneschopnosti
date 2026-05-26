@@ -1,7 +1,7 @@
 * {
   box-sizing: border-box;
   margin: 0;
-  padding: 1;
+  padding: 0;
 }
 
 body {
@@ -11,6 +11,49 @@ body {
   color: white;
 }
 
+/* --- LEHKÁ NAVIGACE BEZ CLASS --- */
+nav {
+  display: flex;
+  justify-content: space-between; /* Název vlevo, odkazy vpravo */
+  align-items: center;
+  background-color: #111115; /* Tmavé pozadí lišty */
+  padding: 15px 30px;
+}
+
+/* Stylování odkazu v levém divu (Logo / Název webu) */
+nav div a {
+  color: #ffc107;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+
+/* Seznam odkazů */
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 15px; /* Mezera mezi tlačítky */
+}
+
+/* Samotná tlačítka (odkazy v seznamu) */
+nav ul li a {
+  display: inline-block;
+  background-color: #2a2a35;
+  color: white;
+  padding: 8px 16px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+/* Efekt při najetí myší na tlačítko */
+nav ul li a:hover {
+  background-color: #ffc107;
+  color: #1e1e24;
+}
+
+/* --- TVŮJ PŮVODNÍ KÓD PRO MINCI --- */
 #container {
   display: flex;
   flex-direction: column;
@@ -19,6 +62,7 @@ body {
   gap: 20px;
   padding: 20px;
 }
+
 #mince {
   height: 120px;
   width: 120px;
@@ -35,7 +79,7 @@ body {
   transform: rotateX(180deg);
 }
 
-.hlava,.orel {
+.hlava, .orel {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -43,20 +87,11 @@ body {
 }
 
 @keyframes flip-hlava {
-  0% {
-    transform: rotateX(0);
-  }
-  100% {
-    transform: rotateX(2520deg);
-  }
+  0% { transform: rotateX(0); }
+  100% { transform: rotateX(2520deg); }
 }
 
 @keyframes flip-orel {
-  0% {
-    transform: rotateX(0);
-  }
-  100% {
-    transform: rotateX(2340deg);
-  }
+  0% { transform: rotateX(0); }
+  100% { transform: rotateX(2340deg); }
 }
-
