@@ -1,13 +1,14 @@
-let penize = Number(localStorage.getItem("penize")) || 100;
+let penize = Number(localStorage.getItem("penize")) || 100
+document.getElementById("cash").innerText = penize
 
-let poplatek = 5;
-let interval = null;
-let velikost = 100;
-let aktivniHra = false;
+let poplatek = 5
+let interval = null
+let velikost = 100
+let aktivniHra = false
 
 function hodMinci() {
   let mince = document.getElementById("mince")
-  let penizeP = document.getElementById("penize")
+  let penizeP = document.getElementById("cash")
   let vysledek = document.getElementById("vysledek")
   let tlacitko = document.querySelector("button[onclick='hodMinci()']")
 
@@ -31,6 +32,7 @@ function hodMinci() {
 
   setTimeout(function() {
     if (jeHlava) {
+      
       penize -= 10
       vysledek.innerText = "Padl orel, odebráno 10 Kč."
     } else {
@@ -40,9 +42,6 @@ function hodMinci() {
     penize -= poplatek
     penizeP.innerText = penize
     tlacitko.disabled = false
-
-    // ULOŽENÍ: Jakmile se peníze změní a vypíšou, uložíme nový stav
-    localStorage.setItem("penize", penize);
-
+    localStorage.setItem("penize", penize)
   }, 3000)
 }
