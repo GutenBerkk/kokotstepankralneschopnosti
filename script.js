@@ -1,5 +1,5 @@
 let penize = Number(localStorage.getItem("penize")) || 100;
-
+/* Coinflip hra */
 let poplatek = 5;
 let interval = null;
 let velikost = 100;
