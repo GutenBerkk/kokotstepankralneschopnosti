@@ -179,3 +179,11 @@ nav ul li a:hover {
   background-color: #ffc107;
   color: #1e1e24;
 }
+
+.inputField {
+  padding: 10px;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 5px;
+  width: 200px;
+}
