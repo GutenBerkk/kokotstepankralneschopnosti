@@ -7,7 +7,6 @@ if (isNaN(penize) || penize <= 0) {
 let cashEl = document.getElementById("cash");
 if (cashEl) cashEl.innerText = penize;
 
-// Společné stavové proměnné (DEKLAROVÁNY POUZE JEDNOU)
 let pPoints = 0, dPoints = 0, bSazka = 0, bBezi = false;
 let poplatek = 5;
 let interval = null;
