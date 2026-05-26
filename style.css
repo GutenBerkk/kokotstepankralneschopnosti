@@ -163,3 +163,19 @@ nav ul li a:hover {
 .stepan-card h3 {
   color: #2980b9;
 }
+
+.blackjackButton {
+  background-color: #2a2a35;
+  color: white;
+  padding: 10px 20px;
+  margin: 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.blackjackButton:hover {
+  background-color: #ffc107;
+  color: #1e1e24;
+}
