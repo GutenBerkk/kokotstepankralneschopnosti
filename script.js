@@ -4,8 +4,8 @@ if (isNaN(penize) || penize <= 0) {
   localStorage.setItem("penize", penize);
 }
 
-let cashEl = document.getElementById("cash");
-if (cashEl) cashEl.innerText = penize;
+let cash = document.getElementById("cash");
+if (cash) cash.innerText = penize;
 
 let pPoints = 0, dPoints = 0, bSazka = 0, bBezi = false;
 let poplatek = 5;
@@ -21,9 +21,8 @@ let minceData = {
   "goldcoin": { label: "Zlatá mince", win: 500, loss: 500, fee: 100, headSrc: "img/head_goldzid.png", tailSrc: "img/tail_goldzid.png" },
 }
 
-function aktualizujZustatek() {
-  let cashEl = document.getElementById("cash");
-  if (cashEl) cashEl.innerText = penize;
+function updateCash() {
+  if (cash) cash.innerText = penize;
   localStorage.setItem("penize", penize);
 }
 
@@ -57,7 +56,7 @@ function hodMinci() {
   }
 
   penize -= vybranaMinc.fee;
-  aktualizujZustatek();
+  updateCash();
 
   mince.style.animation = "none";
   void mince.offsetWidth;
@@ -82,7 +81,7 @@ function hodMinci() {
     }
     
     tlacitko.disabled = false;
-    aktualizujZustatek(); // Uložení výsledku hodu
+    updateCash(); // Uložení výsledku hodu
   }, 3000);
 }
 // ruleta 
@@ -116,7 +115,7 @@ function ruleta(vybrano) {
     vysledekRuleta.innerText = "Prohrál jsi " + sazka + " Kč!";
   }
 
-  aktualizujZustatek();
+  updateCash();
 }
 
 function pujcitPenize() {
@@ -130,7 +129,7 @@ function pujcitPenize() {
 
   penize += castka;
   zprava.innerText = "Úspěšně sis půjčil " + castka + " Kč!";
-  aktualizujZustatek();
+  updateCash();
 }
 
 function startBlackjack() {
@@ -143,7 +142,7 @@ function startBlackjack() {
   }
 
   penize -= bSazka;
-  aktualizujZustatek();
+  updateCash();
   bBezi = true;
 
   pPoints = Math.floor(Math.random() * 10) + 2 + Math.floor(Math.random() * 10) + 2;
@@ -191,5 +190,5 @@ function konecBJ(txt, nasobek) {
   bBezi = false;
   penize += Math.floor(bSazka * nasobek);
   document.getElementById("vysledekBlackjack").innerText = txt;
-  aktualizujZustatek();
+  updateCash();
 }
