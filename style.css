@@ -140,6 +140,14 @@ nav ul li a:hover {
   line-height: 1.5;
 }
 
+.teacher-card {
+  border-left-color: #2ecc71;
+}
+
+.teacher-card h3 {
+  color: #2ecc71;
+}
+
 .clanker-card {
   border-left-color: #c0392b;
 }
