@@ -1,11 +1,9 @@
-// 1. Inicializace peněz z localStorage (pokud neexistuje, nastaví se 100)
 let penize = Number(localStorage.getItem("penize"));
 if (isNaN(penize) || penize <= 0) {
   penize = 100;
   localStorage.setItem("penize", penize);
 }
 
-// Zobrazení peněz na webu hned po načtení
 document.getElementById("cash").innerText = penize;
 
 // Společné stavové proměnné (DEKLAROVÁNY POUZE JEDNOU)
@@ -15,7 +13,6 @@ let interval = null;
 let velikost = 100;
 let aktivniHra = false;
 
-// Databáze mincí
 let minceData = {
   "10kč": { label: "10 Kč", win: 10, loss: 10, fee: 5, headSrc: "img/head_10.png", tailSrc: "img/tail_10.png" },
   "50kč": { label: "50 Kč", win: 50, loss: 50, fee: 20, headSrc: "img/head_50.png", tailSrc: "img/tail_50.png" },
@@ -23,7 +20,6 @@ let minceData = {
   "goldcoin": { label: "Zlatá mince", win: 500, loss: 500, fee: 100, headSrc: "img/head_goldzid.png", tailSrc: "img/tail_goldzid.png" }
 };
 
-// Pomocná funkce pro uložení a vykreslení peněz (předchází chybám s localStorage)
 function aktualizujZustatek() {
   document.getElementById("cash").innerText = penize;
   localStorage.setItem("penize", penize);
@@ -58,7 +54,6 @@ function hodMinci() {
     return;
   }
 
-  // Odečtení poplatku IHNED před hodem
   penize -= vybranaMinc.fee;
   aktualizujZustatek();
 
@@ -136,7 +131,6 @@ function pujcitPenize() {
   aktualizujZustatek();
 }
 
-// SEKCE BLACKJACK
 function startBlackjack() {
   if (bBezi) return;
   
