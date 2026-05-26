@@ -1,14 +1,15 @@
+// 1. Načtení peněz z paměti (pokud tam nejsou, dáme 100)
 let penize = Number(localStorage.getItem("penize")) || 100
 document.getElementById("cash").innerText = penize
 
-let poplatek = 5;
-let interval = null;
-let velikost = 100;
-let aktivniHra = false;
+let poplatek = 5
+let interval = null
+let velikost = 100
+let aktivniHra = false
 
 function hodMinci() {
   let mince = document.getElementById("mince")
-  let penizeP = document.getElementById("cash")
+  let penizeP = document.getElementById("cash") // Změněno na cash podle navigace
   let vysledek = document.getElementById("vysledek")
   let tlacitko = document.querySelector("button[onclick='hodMinci()']")
 
@@ -35,17 +36,14 @@ function hodMinci() {
       penize -= 10
       vysledek.innerText = "Padl orel, odebráno 10 Kč."
     } else {
-      penize -= minc.value
-      vysledek.innerText = `Padl orel, odebráno ${minc.value} Kč.`
+      penize += 10
+      vysledek.innerText = "Padla hlava, přidáno 10 Kč."
     }
     penize -= poplatek
     penizeP.innerText = penize
     tlacitko.disabled = false
+
+    // 2. Uložení aktuálních peněz po skončení hodu
     localStorage.setItem("penize", penize)
   }, 3000)
 }
-
-document.addEventListener("DOMContentLoaded", function() {
-  if (document.getElementById("vyberMince")) aktualizujVybranouMinci()
-  obnovitPenizeZobrazeni()
-})
