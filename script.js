@@ -6,7 +6,6 @@ let interval = null
 let velikost = 100
 let aktivniHra = false
 
-// Data pro jednotlivé mince
 let minceData = {
   "10kč": { label: "10 Kč", win: 10, loss: 10, fee: 5, headSrc: "img/head_10.png", tailSrc: "img/tail_10.png" },
   "50kč": { label: "50 Kč", win: 50, loss: 50, fee: 20, headSrc: "img/head_50.png", tailSrc: "img/tail_50.png" },
@@ -30,7 +29,7 @@ function aktualizujVybranouMinci() {
 
 function hodMinci() {
   let mince = document.getElementById("mince")
-  let penizeP = document.getElementById("cash") // Změněno na cash podle navigace
+  let penizeP = document.getElementById("cash")
   let vysledek = document.getElementById("vysledek")
   let tlacitko = document.querySelector("button[onclick='hodMinci()']")
   if (!tlacitko) return
@@ -42,14 +41,14 @@ function hodMinci() {
     return
   }
 
-  minceElement.style.animation = "none"
-  void minceElement.offsetWidth
+  mince.style.animation = "none"
+  void mince.offsetWidth
   
   let jeHlava = Math.random() <= 0.5
   if (jeHlava) {
-    minceElement.style.animation = "flip-hlava 3s forwards"
+    mince.style.animation = "flip-hlava 3s forwards"
   } else {
-    minceElement.style.animation = "flip-orel 3s forwards"
+    mince.style.animation = "flip-orel 3s forwards"
   }
 
   tlacitko.disabled = true
@@ -66,8 +65,55 @@ function hodMinci() {
     penize -= vybranaMinc.fee
     penizeP.innerText = penize
     tlacitko.disabled = false
-
-    // 2. Uložení aktuálních peněz po skončení hodu
     localStorage.setItem("penize", penize)
   }, 3000)
+}
+
+function ruleta(vybrano) {
+  let padla = Math.random() < 0.5 ? "cerna" : "cervena"
+  
+  if (padla === "cerna") {
+    document.getElementById("padla").innerText = "Černá"
+  } else {
+    document.getElementById("padla").innerText = "Červená"
+  }
+
+  let sazka = Number(document.getElementById("sazka").value)
+  let vysledekRuleta = document.getElementById("vysledekRuleta")
+
+  if (sazka > penize) {
+    vysledekRuleta.innerText = "Nemáš dost peněz na tuto sázku!"
+    return
+  }
+  
+  if (sazka <= 0) {
+    vysledekRuleta.innerText = "Sázka musí být kladná!"
+    return
+  }
+
+  if (vybrano === padla) {
+    penize += sazka
+    vysledekRuleta.innerText = "Vyhrál jsi " + sazka + " Kč!"
+  } else {
+    penize -= sazka
+    vysledekRuleta.innerText = "Prohrál jsi " + sazka + " Kč!"
+  }
+
+  document.getElementById("cash").innerText = penize
+  localStorage.setItem("penize", penize)
+}
+
+function pujcitPenize() {
+  let castka = Number(document.getElementById("pujckaInput").value)
+  let zprava = document.getElementById("zpravaoPujcce")
+
+  if (castka <= 0) {
+    zprava.innerText = "Musíš zadat kladnou částku!"
+    return
+  }
+
+  penize += castka
+  document.getElementById("cash").innerText = penize
+  localStorage.setItem("penize", penize)
+  zprava.innerText = "Úspěšně sis půjčil " + castka + " Kč!"
 }

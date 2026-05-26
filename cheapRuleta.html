@@ -13,19 +13,26 @@
                 <a href="index.html">BubaCasino</a>
             </div>
             <ul>
-                <li><p>Peníze: <span id="cash">0</span>kč</p></li>
+                <li><p>Peníze: <span id="cash">0</span> kč</p></li>
                 <li><a href="index.html">Domů</a></li>
                 <li><a href="CoinFlip.html">CoinFlip</a></li>
                 <li><a href="cheapRuleta.html">CheapRuleta</a></li>
+                <li><a href="pujcky.html">Půjčky</a></li>
             </ul>
         </nav>
     </header>
 
-    <button id="cerna" class="ruletaTlacitko" onclick="ruleta('cerna')">Černá</button>
-    <button id="cervena" class="ruletaTlacitko" onclick="ruleta('cervena')">Červená</button> <br> <br>
-    <input type="number" id="sazka" placeholder="Zadejte sázku"> <br> <br>
+    <main>
+        <div id="container">
+            <button id="cerna" class="ruletaTlacitko" onclick="ruleta('cerna')">Černá</button>
+            <button id="cervena" class="ruletaTlacitko" onclick="ruleta('cervena')">Červená</button> <br> <br>
+            
+            <input type="number" id="sazka" placeholder="Zadejte sázku"> <br> <br>
 
-    <p>Padla: <span id="padla"> </span></p>
+            <p>Padla: <span id="padla"> </span></p>
+            <p id="vysledekRuleta"></p>
+        </div>
+    </main>
 
     <script src="script.js"></script>
 </body>
