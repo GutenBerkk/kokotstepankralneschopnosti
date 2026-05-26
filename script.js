@@ -1,4 +1,3 @@
-// 1. Načtení peněz z paměti (pokud tam nejsou, dáme 100)
 let penize = Number(localStorage.getItem("penize")) || 100
 document.getElementById("cash").innerText = penize
 
@@ -30,8 +29,8 @@ function aktualizujVybranouMinci() {
 }
 
 function hodMinci() {
-  let minceElement = document.getElementById("mince")
-  let penizeP = document.getElementById("cash")
+  let mince = document.getElementById("mince")
+  let penizeP = document.getElementById("cash") // Změněno na cash podle navigace
   let vysledek = document.getElementById("vysledek")
   let tlacitko = document.querySelector("button[onclick='hodMinci()']")
   if (!tlacitko) return
@@ -68,28 +67,7 @@ function hodMinci() {
     penizeP.innerText = penize
     tlacitko.disabled = false
 
+    // 2. Uložení aktuálních peněz po skončení hodu
     localStorage.setItem("penize", penize)
   }, 3000)
-}
-
-document.addEventListener("DOMContentLoaded", function() {
-  aktualizujVybranouMinci()
-})
-
-function pujcitPenize() {
-  let input = document.getElementById("pujckaInput")
-  let castka = Number(input.value)
-  let zprava = document.getElementById("zpravaoPujcce")
-  let cashEl = document.getElementById("cash")
-
-  if (!castka || castka <= 0) {
-    zprava.innerText = "Zadej prosím platnou částku."
-    return
-  }
-
-  penize += castka
-  cashEl.innerText = penize
-  zprava.innerText = "Úspěšně si vypůjčeno " + castka + " Kč. Máš teď " + penize + " Kč."
-  localStorage.setItem("penize", penize)
-  input.value = ""
 }
