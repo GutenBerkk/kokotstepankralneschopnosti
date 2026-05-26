@@ -1,10 +1,10 @@
 let penize = Number(localStorage.getItem("penize")) || 100
 document.getElementById("cash").innerText = penize
 
-let poplatek = 5
-let interval = null
-let velikost = 100
-let aktivniHra = false
+let poplatek = 5;
+let interval = null;
+let velikost = 100;
+let aktivniHra = false;
 
 function hodMinci() {
   let mince = document.getElementById("mince")
@@ -32,12 +32,11 @@ function hodMinci() {
 
   setTimeout(function() {
     if (jeHlava) {
-      
       penize -= 10
       vysledek.innerText = "Padl orel, odebráno 10 Kč."
     } else {
-      penize += 10
-      vysledek.innerText = "Padla hlava, přidáno 10 Kč."
+      penize -= minc.value
+      vysledek.innerText = `Padl orel, odebráno ${minc.value} Kč.`
     }
     penize -= poplatek
     penizeP.innerText = penize
@@ -45,3 +44,8 @@ function hodMinci() {
     localStorage.setItem("penize", penize)
   }, 3000)
 }
+
+document.addEventListener("DOMContentLoaded", function() {
+  if (document.getElementById("vyberMince")) aktualizujVybranouMinci()
+  obnovitPenizeZobrazeni()
+})

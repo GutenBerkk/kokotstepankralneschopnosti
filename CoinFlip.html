@@ -29,8 +29,16 @@
             <img src="img/tail.png" alt="orel" />
           </div>
         </div>
+
+        <label for="vyberMince">Vyber mince:</label>
+        <select id="vyberMince" onchange="aktualizujVybranouMinci()">
+          <option value="50">50 Kč</option>
+          <option value="zidovska">Židovská koruna (200 Kč)</option>
+          <option value="zlata">Zlatá mince (500 Kč)</option>
+        </select>
+
         <button onclick="hodMinci()">hoď mincí</button>
-        <p>peníze: <span id="penize">100</span> Kč</p>
+        <p>Vybraná mince: <span id="vybranaMince">50 Kč</span></p>
         <p>poplatek za hod: 5 Kč</p>
         <p id="vysledek"></p>
       </div>
