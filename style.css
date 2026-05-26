@@ -11,16 +11,14 @@ body {
   color: white;
 }
 
-/* --- LEHKÁ NAVIGACE BEZ CLASS --- */
 nav {
   display: flex;
-  justify-content: space-between; /* Název vlevo, odkazy vpravo */
+  justify-content: space-between;
   align-items: center;
-  background-color: #111115; /* Tmavé pozadí lišty */
+  background-color: #111115;
   padding: 15px 30px;
 }
 
-/* Stylování odkazu v levém divu (Logo / Název webu) */
 nav div a {
   color: #ffc107;
   text-decoration: none;
@@ -28,14 +26,12 @@ nav div a {
   font-size: 1.3rem;
 }
 
-/* Seznam odkazů */
 nav ul {
   list-style: none;
   display: flex;
-  gap: 15px; /* Mezera mezi tlačítky */
+  gap: 15px;
 }
 
-/* Samotná tlačítka (odkazy v seznamu) */
 nav ul li a {
   display: inline-block;
   background-color: #2a2a35;
@@ -47,13 +43,11 @@ nav ul li a {
   transition: all 0.3s ease;
 }
 
-/* Efekt při najetí myší na tlačítko */
 nav ul li a:hover {
   background-color: #ffc107;
   color: #1e1e24;
 }
 
-/* --- TVŮJ PŮVODNÍ KÓD PRO MINCI --- */
 #container {
   display: flex;
   flex-direction: column;
@@ -120,3 +114,44 @@ nav ul li a:hover {
   opacity: 0.8;
 }
 
+.lore-title {
+  color: #ffc107;
+  margin: 30px 0 10px 0;
+  text-transform: uppercase;
+}
+
+.character-card {
+  background-color: #111115;
+  max-width: 600px;
+  width: 90%;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: left;
+  border-left: 5px solid #ffc107;
+}
+
+.character-card h3 {
+  color: #ffc107;
+  margin-bottom: 8px;
+}
+
+.character-card p {
+  color: #e0e0e0;
+  line-height: 1.5;
+}
+
+.clanker-card {
+  border-left-color: #c0392b;
+}
+
+.clanker-card h3 {
+  color: #c0392b;
+}
+
+.stepan-card {
+  border-left-color: #2980b9;
+}
+
+.stepan-card h3 {
+  color: #2980b9;
+}
